@@ -1,0 +1,73 @@
+.header {
+    margin-top: 20px;
+    // height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 60px calc(100vh - 80px);
+    grid-template-columns: auto 50% auto;
+    grid-template-areas:
+        'nav nav nav'
+        'motto motto motto'
+}
+
+.motto {
+    grid-area: motto;
+    // background-color: black;
+    // width: 300px;
+    justify-self: center;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
+    column-gap: 10px;
+    align-self: center;
+
+    height: 360px;
+
+    &__words {
+        font-size: $slogan-font-size-mobile;
+        line-height: 90%;
+        color: $main-color-red;
+        width: 70%;
+        height: 70%;
+
+        grid-column: 1/3;
+
+        grid-row: 1;
+
+        .motto__word:nth-child(1) {
+            -webkit-text-stroke: 2px $main-color-red;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    &__photo {
+        z-index: -1;
+        grid-column: 2/3;
+        grid-row: 1;
+        width: 200px;
+        align-self: center;
+    }
+
+    &__circle {
+        position: relative;
+        width: 100px;
+        height: 101px;
+        grid-column: 1/2;
+        grid-row: 1;
+        align-self: end;
+        // padding: 10px;
+
+        &-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 25px;
+        }
+
+        &-words {
+            width: 100px;
+        }
+    }
+}

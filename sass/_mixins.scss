@@ -1,0 +1,10 @@
+@mixin pseudo-element($top, $left, $color, $width, $height) {
+    content: '';
+    position: absolute;
+    top: $top;
+    left: $left;
+    background-color: $color;
+    width: $width;
+    height: $height;
+    transform: translate(-50%, -50%);
+}

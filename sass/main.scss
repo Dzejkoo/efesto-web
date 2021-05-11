@@ -1,0 +1,23 @@
+@import 'mixins';
+@import 'variables';
+@import 'header';
+@import 'nav';
+@import 'colection';
+@import 'about-us';
+@import 'footer';
+@import 'logo';
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $main-font;
+}
+
+body {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+:root {
+    font-size: 10px;
+}
