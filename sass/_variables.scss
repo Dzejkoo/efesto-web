@@ -7,11 +7,16 @@ $slogan-font-size-desctop: 10rem;
 
 $slogan-font-size-desctop-big: 13rem;
 $text-small-font-size: 1.9rem;
+$text-small-font-size-mobile: 1.75rem;
 
 //colors
 $main-color-red: rgb(216, 0, 0);
 $black-color: rgb(0, 0, 0);
 $grey-button-color: rgb(211, 211, 211);
+$white-color: rgb(255, 255, 255);
 
 //breakpoint 
 $mobile: 824px;
+
+//transition menu 
+$transition: 0.4s

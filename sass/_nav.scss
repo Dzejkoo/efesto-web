@@ -28,17 +28,23 @@
         font-size: 14px;
         grid-area: button;
         z-index: 3;
+        transition: $transition ease-in-out;
 
         &.nav__button--open {
             color: $grey-button-color;
 
+
+
             &::after {
+                transition: $transition ease-in-out;
                 @include pseudo-element(80%, 50%, $grey-button-color, 54%, 2px);
             }
 
             &::before {
+                transition: $transition ease-in-out;
                 @include pseudo-element(90%, 50%, $grey-button-color, 54%, 2px);
             }
+
         }
 
         @media (min-width: $mobile) {
@@ -46,11 +52,15 @@
         }
 
         &::after {
+            transition: $transition ease-in-out;
+            transform: translate(-50%, -50%);
             @include pseudo-element(80%, 50%, $black-color, 54%, 2px);
 
         }
 
         &::before {
+            transition: $transition ease-in-out;
+            transform: translate(-50%, -50%);
             @include pseudo-element(90%, 50%, $black-color, 54%, 2px);
         }
 
@@ -58,51 +68,141 @@
 
     &__list {
         list-style: none;
-        background-color: blue;
+        background-color: $main-color-red;
         position: absolute;
-        width: 50%;
+        width: 60%;
         height: 100vh;
-        // display: none;
         transform: translateX(-100%);
         z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        color: $white-color;
+        font-size: $text-small-font-size-mobile;
+        animation: menu-smooth-back 0.7s both;
+        text-transform: uppercase;
+        opacity: 0;
+
+        &--visible {
+            opacity: 1;
+
+        }
+
+        @media (min-width: $mobile) {
+            animation: none;
+            opacity: 1;
+            text-transform: none;
+
+            &::after {
+                display: none;
+
+            }
+
+        }
+
+        @keyframes menu-opacity {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1
+            }
+
+        }
+
+        @keyframes menu-smooth {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+
+        }
+
+        @keyframes menu-smooth-back {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        &::after {
+            animation: menu-smooth-back 1s both;
+            @include pseudo-element(0, 0, $black-color, 100%, 100%);
+        }
+
 
         &.nav__list--open {
-            transform: translateX(0%);
+            animation: menu-smooth 1s both;
+
+            &>.nav__item {
+                transform: translateX(0%);
+                opacity: 1;
+                transition: $transition ease-in-out;
+                transition-delay: 0.3s;
+            }
+
+            &::after {
+                animation: menu-smooth 1s both;
+                @include pseudo-element(0, 0, $black-color, 100%, 100%);
+                z-index: -1;
+                transition: 0.2s cubic-bezier(.24, 1.01, .63, .88);
+                transition-delay: 1s;
+            }
+
         }
 
         @media (min-width: $mobile) {
             display: flex;
+            flex-direction: row;
             grid-area: list;
             width: 100%;
             font-size: $text-small-font-size;
-
-            // background-color: black;
-            justify-content: space-around;
-            align-items: center;
+            position: relative;
+            height: auto;
+            color: $black-color;
+            background-color: transparent;
+            transform: translate(0);
         }
 
         .nav__item {
-            padding: 0 15px;
+            transition: $transition ease-in-out;
+            transform: translateX(-100%);
+            opacity: 0;
 
-            &:nth-of-type(3) {
-                margin-left: auto;
+            @media (min-width: $mobile) {
+                padding: 0 15px;
+                transform: translateX(0);
+                opacity: 1;
 
+                &:nth-of-type(3) {
+                    margin-left: auto;
+                }
+
+                &:nth-of-type(2) {
+                    margin-right: auto;
+                }
             }
 
-            &:nth-of-type(2) {
-                margin-right: auto;
-            }
         }
-
-
-
-
     }
 
     &__link {
         display: block;
         padding: 5px 10px;
-        color: $black-color;
+        color: $white-color;
+
+        @media (min-width: $mobile) {
+            color: $black-color;
+        }
+
         text-decoration: none;
         font-weight: 400;
         letter-spacing: 1px;
