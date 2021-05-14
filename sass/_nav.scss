@@ -8,7 +8,7 @@
 
     position: relative;
 
-    @media (min-width: 824px) {
+    @media (min-width: $mobile) {
         display: grid;
         grid-template-columns: 40px 1fr 40px;
         grid-template-areas:
@@ -27,13 +27,27 @@
         font-weight: 600;
         font-size: 14px;
         grid-area: button;
+        z-index: 3;
 
-        @media (min-width: 824px) {
+        &.nav__button--open {
+            color: $grey-button-color;
+
+            &::after {
+                @include pseudo-element(80%, 50%, $grey-button-color, 54%, 2px);
+            }
+
+            &::before {
+                @include pseudo-element(90%, 50%, $grey-button-color, 54%, 2px);
+            }
+        }
+
+        @media (min-width: $mobile) {
             display: none;
         }
 
         &::after {
             @include pseudo-element(80%, 50%, $black-color, 54%, 2px);
+
         }
 
         &::before {
@@ -43,14 +57,25 @@
     }
 
     &__list {
-        display: none;
+        list-style: none;
+        background-color: blue;
+        position: absolute;
+        width: 50%;
+        height: 100vh;
+        // display: none;
+        transform: translateX(-100%);
+        z-index: 2;
 
-        @media (min-width: 824px) {
+        &.nav__list--open {
+            transform: translateX(0%);
+        }
+
+        @media (min-width: $mobile) {
             display: flex;
             grid-area: list;
             width: 100%;
             font-size: $text-small-font-size;
-            list-style: none;
+
             // background-color: black;
             justify-content: space-around;
             align-items: center;
@@ -104,7 +129,7 @@
         justify-content: center;
         align-items: center;
 
-        @media (min-width: 824px) {
+        @media (min-width: $mobile) {
             position: absolute;
             top: 50%;
             left: 50%;
