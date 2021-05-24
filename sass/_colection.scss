@@ -1,0 +1,111 @@
+.colections {
+    display: grid;
+    grid-template-columns: 1fr 300px 1fr;
+    grid-template-rows: auto;
+    width: 100%;
+    row-gap: 20px;
+
+    &__header {
+        display: flex;
+        grid-column: 2/3;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+
+        @media (min-width: $mobile) {
+            grid-column: 1/-1;
+            width: 80%;
+
+        }
+
+
+
+        &-tittle {
+            font-size: $slogan-font-size-mobile;
+            letter-spacing: -5px;
+            ;
+            position: relative;
+
+            &::after {
+                @include pseudo-element(55%, -10%, $black-color, 2px, 50%);
+
+                transform: translate(-50%, -50%);
+            }
+
+            &::before {
+                @include pseudo-element(20%, -10%, transparent, auto, auto);
+                transform: translate(-50%, -50%);
+                content: '01';
+                font-size: 1rem;
+                letter-spacing: 0px;
+            }
+        }
+
+        &-content {
+            font-size: $text-small-font-size-mobile;
+            width: 200px;
+            line-height: 100%;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            font-weight: 500;
+            margin-left: auto;
+            padding-right: 34px;
+            font-family: $content-font;
+        }
+    }
+
+    &__gallery {
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
+        justify-content: center;
+        // align-items: center;
+
+        grid-gap: 20px;
+
+        .colections__photo {
+            position: relative;
+
+            color: $white-color;
+
+
+            &-img {
+                width: 100%;
+                height: 100%;
+            }
+
+            &-info {
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                left: 0;
+                // width: 200px;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+
+                .colections__photo-date {
+                    font-size: 1.5rem;
+                    font-weight: 200;
+                    font-style: italic;
+                    font-family: $content-font;
+                    padding-bottom: 10px;
+
+
+                }
+
+                .colections__photo-place {
+                    font-size: 2rem;
+                    font-weight: 300;
+                    font-family: $content-font;
+
+                }
+            }
+
+        }
+    }
+
+
+}

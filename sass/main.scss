@@ -1,5 +1,6 @@
 @import 'mixins';
 @import 'variables';
+@import 'button';
 @import 'header';
 @import 'nav';
 @import 'colection';
@@ -21,6 +22,7 @@ body {
 
     &.open-menu {
         height: 100vh;
+        overflow: hidden;
     }
 }
 
@@ -28,4 +30,5 @@ body {
 
 :root {
     font-size: 10px;
+
 }

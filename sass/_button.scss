@@ -1,0 +1,16 @@
+.button {
+    font-size: 1.7rem;
+    position: relative;
+    color: $grey-button-color;
+    line-height: 120%;
+    width: auto;
+    margin-top: 5px;
+    padding-right: 5px;
+    font-weight: 300;
+    font-family: $content-font;
+
+    &:after {
+        @include pseudo-element(0, 100%, $grey-button-color-bar, 2px, 100%);
+        transform: translateX(-50%)
+    }
+}

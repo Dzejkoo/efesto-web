@@ -1,0 +1,59 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    padding: 8%;
+
+    &__social {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto;
+        @include fluid-type(25px, 35px);
+        text-transform: uppercase;
+        letter-spacing: -2px;
+        margin-bottom: 20%;
+
+        &-wrapper {
+            grid-column: 1/2;
+            grid-row: 1;
+            display: flex;
+            flex-direction: column;
+            margin-right: auto;
+        }
+
+        &-facebook {
+            background-color: black;
+            text-align: center;
+            width: auto;
+            color: white;
+        }
+
+
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        list-style: none;
+        text-transform: none;
+        font-family: $content-font;
+        @include fluid-type(20px, 30px);
+
+        .footer__link {
+            color: black;
+            text-decoration: none;
+            font-family: $content-font;
+            line-height: 100%;
+
+            &-yellow {
+                background-color: rgb(255, 239, 66);
+                padding: 0 5px;
+            }
+        }
+    }
+
+
+    &__logo {
+        width: 30vmax;
+    }
+}

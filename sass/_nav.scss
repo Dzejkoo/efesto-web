@@ -1,12 +1,13 @@
 .nav {
     display: grid;
-    grid-template-columns: 60px 1fr 40px 40px;
+    grid-template-columns: auto 1fr 40px 40px;
     grid-template-areas:
         'button logo basket search'
     ;
     grid-area: nav;
 
     position: relative;
+    padding: 0 10px;
 
     @media (min-width: $mobile) {
         display: grid;
@@ -18,11 +19,11 @@
     }
 
     &__button {
-        padding: 5px;
+        // padding: 5px;
         background-color: transparent;
         border: none;
         width: 60px;
-        height: 50px;
+        height: 53px;
         position: relative;
         font-weight: 600;
         font-size: 14px;
@@ -54,14 +55,14 @@
         &::after {
             transition: $transition ease-in-out;
             transform: translate(-50%, -50%);
-            @include pseudo-element(80%, 50%, $black-color, 54%, 2px);
+            @include pseudo-element(70%, 50%, $black-color, 54%, 2px);
 
         }
 
         &::before {
             transition: $transition ease-in-out;
             transform: translate(-50%, -50%);
-            @include pseudo-element(90%, 50%, $black-color, 54%, 2px);
+            @include pseudo-element(75%, 50%, $black-color, 54%, 2px);
         }
 
     }
@@ -237,13 +238,12 @@
         }
 
 
-        .nav__link {
+        .nav__link-logo {
             display: flex;
             justify-content: center;
-            max-height: 80%;
 
             .nav__picture {
-                width: 100%;
+                width: 130px;
             }
         }
     }
